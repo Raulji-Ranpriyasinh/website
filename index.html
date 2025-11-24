@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mkentech.in</title>
+    <link rel="stylesheet" href="/services.css" />
+    <script src="script.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: white;
+        color: white;
+        min-height: 100vh;
+      }
+
+      header .logo {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      nav a {
+        margin-left: 20px;
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        transition: 0.3s;
+      }
+
+      nav a:hover {
+        color: rgba(212, 12, 12, 0.697);
+      }
+
+      .btn-contact {
+        background: rgba(212, 12, 12, 0.697);
+        padding: 8px 16px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: bold;
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+      }
+
+      /* Hero Section */
+      .hero {
+        color: #0a0c10;
+        text-align: center;
+        margin: auto;
+        max-width: 800px;
+        padding: 40px 20px;
+        min-height: 100vh; /* take full screen */
+        display: flex;
+      }
+      .hero {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        line-height: 1.6;
+      }
+
+      /* Buttons */
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .buttons a {
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+      .buttons a:hover {
+        background: rgba(212, 12, 12, 0.697);
+      }
+      .btn-explore {
+        background: rgba(212, 12, 12, 0.697);
+        color: white;
+      }
+
+      .btn-explore:hover {
+        opacity: 0.9;
+      }
+
+      .btn-outline {
+        border: 2px solid white;
+        color: white;
+      }
+
+      .btn-outline {
+        border-color: #0a0c10;
+        color: #0a0c10;
+      }
+      .btn-outline:hover {
+        border-color: rgba(212, 12, 12, 0.697);
+        background: rgba(212, 12, 12, 0.697);
+        color: white;
+      }
+      /* Navbar */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 50px;
+        background: transparent; /* transparent at first */
+        transition: background 0.3s ease; /* smooth change */
+        z-index: 1000;
+      }
+
+      header.scrolled {
+        background: #fafafacc;
+        opacity: 90%; /* solid when scrolled */
+        border-color: #c9cbcf;
+      }
+      header nav a {
+        color: black;
+      }
+
+      /* Logo */
+      .logo img {
+        height: 40px; /* control logo size */
+        width: auto; /* keep proportions */
+        display: block; /* removes extra bottom spacing */
+      }
+      .heading {
+        color: #fc1f3c;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Sweep glow background */
+
+
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <img src="/logoremoved.png" alt="Logo" />
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#">Products</a>
+        <a href="#">Internships</a>
+        <a href="#">Contact</a>
+        <a href="#">About </a>
+      </nav>
+      <a href="#" class="btn-contact">Contact Us</a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <h1>
+        Empowering
+        <span class="heading"> Students, Researchers & Innovators</span>
+      </h1>
+      <p>
+        Your one-stop hub for academic projects, research publication,
+        innovation consulting, and comprehensive educational support.
+      </p>
+      <div class="buttons">
+        <a href="#" class="btn-explore">Explore Services</a>
+        <a href="#" class="btn-outline">Contact Us</a>
+      </div>
+    </section>
+    <!-- our service -->
+    <section class="services" id="services">
+      <h2>Our Comprehensive Services</h2>
+      <p>
+        We provide a complete ecosystem of services to support students,
+        researchers, and innovators at every stage of their journey.
+      </p>
+
+      <div class="service-cards">
+        <div class="card">
+          <div class="icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h3>Project Development</h3>
+          <p>
+            End-to-end support for Electronics, Mechanical, Biomedical, and
+            Software projects.
+          </p>
+          <a href="#">Learn More →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <i class="fas fa-cube"></i>
+          </div>
+          <h3>Ready-Made Kits</h3>
+          <p>
+            Complete kits with documentation and videos for quick, hands-on
+            learning.
+          </p>
+          <a href="#">Learn More →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>Research Publication</h3>
+          <p>
+            Expert assistance for publishing in high-impact Scopus, WoS, and UGC
+            journals.
+          </p>
+          <a href="#">Learn More →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>Research Guidance</h3>
+          <p>
+            One-on-one consulting for thesis Development,methodology, and
+            structuring
+          </p>
+          <a href="#">Learn More →</a>
+        </div>
+      </div>
+      <div class="service-cards">
+        <div class="card">
+          <div class="icon">
+            <i class="fas fa-project-diagram"></i>
+          </div>
+          <h3>Open Journal System(OJS)</h3>
+          <p>
+            Complete journal hosting, management, and technical support
+            solutions .
+          </p>
+          <a href="#">Learn More →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <i class="fas fa-cube"></i>
+          </div>
+          <h3>Internships & Training</h3>
+          <p>
+            Hands-on experience in Software, Robotics, AI, and other emerging
+            technologies.
+          </p>
+          <a href="#">Learn More →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>Lab Development</h3>
+          <p>
+            Setup and support for Robotics, Dron, 3D Printing, and
+            Microcontroller Labs.
+          </p>
+          <a href="#">Learn More →</a>
+        </div>
+
+        <div class="card">
+          <div class="icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <h3>Technology Consulting</h3>
+          <p>R&D consulting and innovation support for startups and MSMEs.</p>
+          <a href="#">Learn More →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project show case section -->
+
+    <section class="projects" id="services">
+      <h2>Latest Projects Showcase</h2>
+      <p>
+        Check out some of the innovative projects our students and researchers
+        have recently completed.
+      </p>
+
+      <div class="projects-carousel">
+        <button class="pc-arrow pc-prev" aria-label="Previous">❮</button>
+
+        <div class="pc-viewport" aria-live="polite">
+          <div class="pc-track">
+            <a
+              href="https://youtu.be/4mUwyRIvMRs?si=qL5asa1h5GRFHxO1"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="/Images/LDR Interface.jpg" alt=""></div>
+                <h3>LDR Interface with LED Simulation in Proteus</h3>
+              </article>
+            </a>
+
+            <a
+              href="https://youtu.be/Ad0YlYML73g?si=J-vT8bG-k1PHcB45"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="/Images/robot.png" alt=""></div>
+                <h3>Car with Mecanum Wheels & Axis Robotic Arm</h3>
+              </article>
+            </a>
+
+            <a
+              href="https://youtu.be/ke4rRvOBQCc?si=wz-sxuHrJJnj_RGu"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="/Images/dustbin.png" alt=""></div>
+                <h3>DIY Smart Dustbin with Arduino & Sensors</h3>
+              </article>
+            </a>
+
+            <a
+              href="https://youtu.be/hbnLACPlLkU?si=YB4DsiD82PthrlPF"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="/Images/heart.png" alt=""></div>
+                <h3>Smart Heart Rate Sensor with IoT Connectivity</h3>
+              </article>
+            </a>
+
+            <a
+              href="https://youtu.be/BrixEOphkC8?si=dq4rX5GijTAzvDPC"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="/Images/car.png" alt=""></div>
+                <h3>Gesture-Controlled Robo Car</h3>
+              </article>
+            </a>
+            
+            <!-- duplicate or add more cards as needed -->
+          </div>
+          <p style="padding-top: 50px; font-size :35px " >Where ideas turn into prototypes, and prototypes become future tech.</p>
+        </div>
+
+        <button class="pc-arrow pc-next" aria-label="Next">❯</button>
+      </div>
+    </section>
+
+    <!-- what or student say -->
+    <section class="testemonial" id="testemonial">
+  <h2>What Our Students Say</h2>
+  <p>Feedback from international students who have used our services.</p>
+
+  <div class="testimonials">
+    <article class="t-card">
+      <p class="t-quote">"The Overseas Student Care service was a lifesaver! They helped me with my accommodation and assignments, making my transition to a new country so much smoother."</p>
+      <div class="t-person">
+        <div class="t-avatar">CW</div>
+        <div class="t-meta">
+          <h4>Harsh</h4>
+          <span>Dubai</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="t-card">
+      <p class="t-quote">"I was struggling with my PhD thesis, but the Research Guidance program gave me the direction I needed. My mentor was incredibly knowledgeable and supportive."</p>
+      <div class="t-person">
+        <div class="t-avatar">FA</div>
+        <div class="t-meta">
+          <h4>Ive</h4>
+          <span>Australia </span>
+        </div>
+      </div>
+    </article>
+
+    <article class="t-card">
+      <p class="t-quote">"The project development support is top‑notch. With their help, I was able to build a fully functional prototype for my final year project. Highly recommended!"</p>
+      <div class="t-person">
+        <div class="t-avatar">DS</div>
+        <div class="t-meta">
+          <h4>Henil</h4>
+          <span>United Kingdom</span>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- contact -->
+
+<!-- <section class="contact" id="contact">
+  <div class="container">
+    <div class="left">
+      <h2>Get in Touch</h2>
+      <p>Have a question or a project in mind? Fill out the form, and we'll get back to you as soon as possible.</p>
+
+      <form class="contact-form" action="#" method="post" novalidate>
+        <label class="field">
+          <span class="label">Name</span>
+          <input class="input" type="text" name="name" placeholder="Your Name" required />
+        </label>
+
+        <label class="field">
+          <span class="label">Email</span>
+          <input class="input" type="email" name="email" placeholder="your.email@example.com" required />
+        </label>
+
+        <label class="field">
+          <span class="label">Phone (Optional)</span>
+          <input class="input" type="tel" name="phone" placeholder="Your phone number" />
+        </label>
+
+        <label class="field field--full">
+          <span class="label">Message</span>
+          <textarea class="textarea" name="message" rows="6" placeholder="Tell us a little bit about your project or question"></textarea>
+        </label>
+
+        <button type="submit" class="btn-gradient">Submit Enquiry</button>
+      </form>
+    </div>
+
+   
+  </div>
+</section> -->
+
+
+<section id="contact" class="contact">
+
+  <!-- =================== GET IN TOUCH =================== -->
+  <div class="container contact-block">
+    <div class="left">
+      <h2>Get in Touch</h2>
+      <p>Have a question or a project in mind? Fill out the form, and we'll get back to you as soon as possible.</p>
+
+      <form class="contact-form" action="#" method="post" novalidate>
+        <label class="field">
+          <span class="label">Name</span>
+          <input class="input" type="text" name="name" placeholder="Your Name" required />
+        </label>
+
+        <label class="field">
+          <span class="label">Email</span>
+          <input class="input" type="email" name="email" placeholder="your.email@example.com" required />
+        </label>
+
+        <label class="field">
+          <span class="label">Phone (Optional)</span>
+          <input class="input" type="tel" name="phone" placeholder="Your phone number" />
+        </label>
+
+        <label class="field field--full">
+          <span class="label">Message</span>
+          <textarea class="textarea" name="message" rows="6" placeholder="Tell us a little bit about your project or question"></textarea>
+        </label>
+
+        <button type="submit" class="btn-gradient">Submit Enquiry</button>
+      </form>
+    </div>
+
+    <aside class="right">
+      <div class="left">
+      <h2>About Us</h2>
+
+      <p>
+        KEEN Tech Solutions LLP is committed to empowering students, researchers, and innovators
+        by offering technical solutions, research support, academic project guidance,
+        and industry-grade development services.
+      </p>
+
+      <p>
+        We bridge the gap between education and innovation with hands-on experience,
+        mentorship, and technology solutions tailored for real-world needs.
+      </p>
+    </aside>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- About + Footer Combo -->
+<!-- <section class="about-hero" id="about">
+  <div class="container">
+    <h2>Our Vision</h2>
+    <p>Bridging the gap between Projects, Research, Training, Labs, Publication, and Academics to create a holistic ecosystem for learning and innovation.</p>
+  </div>
+</section> -->
+
+
+
+<!-- Wave divider -->
+<div class="footer-wave-divider" aria-hidden="true">
+  <svg viewBox="0 0 1440 140" preserveAspectRatio="none" class="wave">
+    <path d="M0,64 C240,128 480,0 720,32 C960,64 1200,160 1440,96 L1440,140 L0,140 Z"></path>
+  </svg>
+</div>
+
+<footer class="site-footer" id="footer">
+  <div class="container footer-grid">
+    <div class="f-brand">
+      <img src="/logoremoved.png" alt="KEEN logo small" />
+      <p>KEEN builds a vibrant bridge between academia and industry through research‑centric training and project execution.</p>
+      <div class="social">
+        <a href="#" aria-label="Twitter" class="ic">🐦</a>
+        <a href="#" aria-label="LinkedIn" class="ic">🔗</a>
+        <a href="#" aria-label="GitHub" class="ic">🐙</a>
+      </div>
+    </div>
+
+    <nav class="f-links">
+      <h5>Explore</h5>
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#services">Training & Labs</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="f-contact">
+      <h5>Contact</h5>
+      <ul>
+        <li>123 Innovation Drive</li>
+        <li>Knowledge City, ST 12345</li>
+        <li>Email: contact@mkkentech.in</li>
+        <li>Phone: +1 (234) 567‑890</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="copy">
+    © <span id="yr"></span> KEEN Innovation Lab · All rights reserved.
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+
+
+
+
+
+  </body>
+
+  <script>
+    window.addEventListener("scroll", function () {
+      const header = document.querySelector("header");
+      if (window.scrollY > 50) {
+        // after 50px scroll
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    });
+  </script>
+</html>
