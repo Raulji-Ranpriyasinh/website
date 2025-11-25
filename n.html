@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KEEN Tech Solutions — Empowering Students & Researchers</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9b6f4f3.js" crossorigin="anonymous"></script>
+  <style>
+    :root{
+      --bg:#0f1724; /* dark blue */
+      --card:#0b1220;
+      --accent:#6d28d9; /* purple */
+      --accent-2:#06b6d4; /* teal */
+      --muted:#94a3b8;
+      --glass: rgba(255,255,255,0.03);
+      --radius:16px;
+      --max-w:1100px;
+      --transition:200ms;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background:linear-gradient(180deg,#071023 0%, #061322 100%);
+      color:#e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max-w);margin:0 auto;padding:28px}
+
+    /* NAV */
+    header{position:sticky;top:12px;z-index:60}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;backdrop-filter:blur(6px)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width: 80px;height: 80px;border-radius:10px;/*display:flex;align-items:center;justify-content:center;*/font-weight:800;font-family:Poppins}
+    nav ul{display:flex;gap:16px;list-style:none;margin:0;padding:0;align-items:center}
+    nav a{padding:8px 10px;border-radius:8px;color:var(--muted);font-weight:600}
+    nav a:hover{color:#fff}
+    .cta{display:flex;gap:10px;align-items:center}
+    .btn{padding:10px 16px;border-radius:10px;font-weight:700;cursor:pointer;transition:var(--transition)}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),#8b5cf6);color:white}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.05);color:var(--muted)}
+
+    /* HERO */
+    .hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:40px 0;}
+    .hero h1{font-family:Poppins;font-size:36px;margin:0 0 12px}
+    .hero p{color:var(--muted);margin:0 0 20px}
+    .hero .kpis{display:flex;gap:14px;margin-top:18px}
+    .kpi{background:var(--glass);padding:10px 14px;border-radius:10px;font-weight:700;color:#eaf6ff}
+    .hero-visual{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:12px;height:320px;display:flex;flex-direction:column;gap:10px}
+    .visual-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;height:100%}
+    .visual-grid img{width:100%;height:100%;object-fit:cover;border-radius:10px}
+
+    /* SERVICES */
+    .section{margin:36px 0}
+    .section h2{font-family:Poppins;margin:0 0 14px}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+    .card h3{margin:0 0 8px;font-size:16px}
+    .card p{margin:0;color:var(--muted);font-size:14px}
+
+    /* PROJECTS */
+    .projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .project-card{display:flex;flex-direction:column;gap:10px}
+    .thumb{position:relative;border-radius:10px;overflow:hidden;background:#061025;height:180px}
+    .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+    .project-meta{display:flex;justify-content:space-between;align-items:center}
+
+    /* TESTIMONIALS */
+    .testi-wrap{background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));padding:18px;border-radius:12px}
+    .testi{display:flex;gap:12px;align-items:flex-start}
+    .avatar{width:56px;height:56px;border-radius:12px;background:linear-gradient(180deg,#203040,#162130);display:flex;align-items:center;justify-content:center;font-weight:700}
+    .stars{color:#ffd166}
+
+    /* CONTACT */
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:16px}
+    form{display:flex;flex-direction:column;gap:10px}
+    input,select,textarea{padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .floating-ws{position:fixed;right:18px;bottom:18px;background:linear-gradient(90deg,var(--accent),var(--accent-2));border-radius:999px;padding:12px 16px;color:white;box-shadow:0 8px 20px rgba(102,0,255,0.08);z-index:80}
+
+    footer{margin-top:36px;padding:18px 0;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width:980px){
+      :root{--max-w:920px}
+      .hero{grid-template-columns:1fr 300px}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .projects-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .container{padding:18px}
+      .hero{grid-template-columns:1fr;gap:18px}
+      .hero-visual{height:220px}
+      nav ul{display:none}
+      .menu-toggle{display:inline-flex}
+      .services-grid{grid-template-columns:1fr}
+      .projects-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+      .brand .logo{width:40px;height:40px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+    
+      <div class="nav">
+        <div class="brand">
+          <div class="logo"><img src="./logoremoved.png" alt="KEEN Logo" class="logo" style="height:80px;" /></div>
+          <div>
+            <div style="font-weight:700">MKeen Tech Solutions</div>
+            <div style="font-size:12px;color:var(--muted)">Projects • Research • Internships</div>
+          </div>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="cta">
+          <button class="btn btn-ghost" onclick="scrollToSection('contact')">Contact</button>
+          <button class="btn btn-primary" onclick="scrollToSection('projects')">Start Your Project</button>
+          <div class="menu-toggle" style="display:none"><i class="fa fa-bars"></i></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="home" class="hero">
+      <div>
+        <h1>Empowering Students, Innovators & Researchers to Build Real-World Technology</h1>
+        <p>Hands-on project development, research publication support, internship training & lab setup — practical learning that leads to results.</p>
+        <div style="display:flex;gap:12px">
+          <button class="btn btn-primary" onclick="scrollToSection('contact')">Start Your Project</button>
+          <button class="btn btn-ghost" onclick="scrollToSection('services')">Explore Services</button>
+        </div>
+        <div class="kpis" style="margin-top:18px">
+          <div class="kpi">3000+ Students</div>
+          <div class="kpi">1200+ Projects</div>
+          <div class="kpi">98% Success</div>
+        </div>
+      </div>
+
+      <aside class="hero-visual">
+        <div style="font-weight:700">Featured Work</div>
+        <div class="visual-grid">
+          <img src="https://images.unsplash.com/photo-1534126511673-b6899657816a?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=aa2f9ff4f7b4ae6f5f7f2a11b2f6a7b7" alt="project-1">
+          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=e4903d6b8b2f4e1aa5f7a7ea9b9f1e57" alt="project-2">
+          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=6b3f1b3f6f9d4fbb2e9d2fd5a9a4f2e8" alt="project-3">
+          <img src="https://images.unsplash.com/photo-1537438734275-3f3a5b7f3c38?q=80&w=800&auto=format&fit=crop&ixlib=rb-4.0.3&s=4c1da7e1b4f8e4c9e3134c4bbf6f8f3d" alt="project-4">
+        </div>
+      </aside>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section">
+      <h2>What We Offer</h2>
+      <p style="color:var(--muted);margin:6px 0 18px">End-to-end project development, research publication help, internships and lab setup.</p>
+      <div class="services-grid">
+        <div class="card">
+          <h3>🔧 Project Development</h3>
+          <p>End-to-end implementation for final-year & research projects with working code and documentation.</p>
+        </div>
+        <div class="card">
+          <h3>📚 Research Publication</h3>
+          <p>Guidance for paper writing, format, submission and target journals (IEEE, Scopus, UGC).</p>
+        </div>
+        <div class="card">
+          <h3>💼 Internships & Training</h3>
+          <p>Hands-on internships with live tasks, assessments and certificate upon completion.</p>
+        </div>
+        <div class="card">
+          <h3>🧪 Lab Setup</h3>
+          <p>Academic lab design and deployment for AI/ML, IoT, Robotics & Cloud labs.</p>
+        </div>
+        <div class="card">
+          <h3>🧠 Workshops & Mini-courses</h3>
+          <p>Practical workshops and bootcamps to accelerate learning and build portfolios.</p>
+        </div>
+        <div class="card">
+          <h3>🤝 Mentorship</h3>
+          <p>1:1 mentoring for research, internships and career guidance from industry experts.</p>
+        </div>
+      </div>
+      <div style="margin-top:12px;text-align:right"><a class="btn btn-ghost" href="#projects">View Projects →</a></div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2>Latest Student Projects</h2>
+      <p style="color:var(--muted);margin:6px 0 18px">Real implementations, demo videos and short case notes.</p>
+      <div class="projects-grid">
+        <div class="project-card card">
+          <div class="thumb">
+            <img loading="lazy" src="https://img.youtube.com/vi/6ZfuNTqbHE8/hqdefault.jpg" alt="project-demo">
+          </div>
+          <div class="project-meta">
+            <div>
+              <div style="font-weight:700">AI-Powered Attendance System</div>
+              <div style="font-size:13px;color:var(--muted)">Face recognition based attendance solution</div>
+            </div>
+            <a class="btn btn-primary" href="#" onclick="openDemo(event,'https://www.youtube.com/embed/6ZfuNTqbHE8')">Watch</a>
+          </div>
+        </div>
+
+        <div class="project-card card">
+          <div class="thumb">
+            <img loading="lazy" src="https://img.youtube.com/vi/aqz-KE-bpKQ/hqdefault.jpg" alt="project-demo-2">
+          </div>
+          <div class="project-meta">
+            <div>
+              <div style="font-weight:700">Smart Agriculture System</div>
+              <div style="font-size:13px;color:var(--muted)">IoT sensors + prediction model for soil monitoring</div>
+            </div>
+            <a class="btn btn-primary" href="#" onclick="openDemo(event,'https://www.youtube.com/embed/aqz-KE-bpKQ')">Watch</a>
+          </div>
+        </div>
+
+        <div class="project-card card">
+          <div class="thumb">
+            <img loading="lazy" src="https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg" alt="project-demo-3">
+          </div>
+          <div class="project-meta">
+            <div>
+              <div style="font-weight:700">Obstacle Avoidance Robot</div>
+              <div style="font-size:13px;color:var(--muted)">Autonomous robot using ultrasonic sensors</div>
+            </div>
+            <a class="btn btn-primary" href="#" onclick="openDemo(event,'https://www.youtube.com/embed/dQw4w9WgXcQ')">Watch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="section">
+      <h2>What Our Students Say</h2>
+      <div style="margin-top:12px;display:flex;gap:14px;overflow:hidden">
+        <div class="testi-wrap" style="flex:1">
+          <div class="testi">
+            <div class="avatar">JS</div>
+            <div>
+              <div style="font-weight:700">John Smith — UAE</div>
+              <div class="stars">★★★★★</div>
+              <div style="color:var(--muted);margin-top:6px">"The mentorship and hands-on approach helped me publish my first paper and build a production-ready project."</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-wrap" style="flex:1">
+          <div class="testi">
+            <div class="avatar">AP</div>
+            <div>
+              <div style="font-weight:700">Anita Patel — India</div>
+              <div class="stars">★★★★★</div>
+              <div style="color:var(--muted);margin-top:6px">"Practical assignments and regular feedback made the internship truly valuable for my CV."</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-wrap" style="flex:1">
+          <div class="testi">
+            <div class="avatar">MK</div>
+            <div>
+              <div style="font-weight:700">Mohammed Khan — India</div>
+              <div class="stars">★★★★★</div>
+              <div style="color:var(--muted);margin-top:6px">"Excellent guidance on research publication — the team handled submissions and revisions brilliantly."</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2>Let’s Connect</h2>
+      <p style="color:var(--muted);margin:6px 0 14px">Share project details and we'll get back within 24 hours.</p>
+      <div class="contact-grid">
+        <div>
+          <form id="contactForm" onsubmit="submitForm(event)">
+            <input type="text" id="name" placeholder="Full name" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="tel" id="phone" placeholder="Mobile (10 digits)" pattern="[0-9]{10}" />
+            <select id="service">
+              <option value="project">Project Development</option>
+              <option value="research">Research Publication</option>
+              <option value="internship">Internship</option>
+              <option value="lab">Lab Setup</option>
+            </select>
+            <textarea id="message" rows="5" placeholder="Tell us about your project or request"></textarea>
+            <div style="display:flex;gap:10px;align-items:center">
+              <button class="btn btn-primary" type="submit">Send Message</button>
+              <div style="color:var(--muted);font-size:13px">Or message on WhatsApp</div>
+            </div>
+          </form>
+        </div>
+        <aside style="background:var(--glass);padding:16px;border-radius:12px">
+          <h3 style="margin-top:0">Get in touch</h3>
+          <p style="color:var(--muted)"><strong>Phone:</strong> +91 98765 43210<br><strong>Email:</strong> hello@keentech.example</p>
+          <div style="margin-top:10px">
+            <a class="btn btn-ghost" href="#">Book a Call</a>
+            <a class="btn btn-primary" href="https://wa.me/919876543210" target="_blank" style="margin-left:8px">WhatsApp</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:700">KEEN Tech Solutions</div>
+          <div style="font-size:13px;color:var(--muted)">Practical projects • Research • Internships</div>
+        </div>
+        <div style="color:var(--muted)">© 2025 KEEN Tech Solutions — All rights reserved</div>
+      </div>
+    </footer>
+
+  </div>
+
+  <a class="floating-ws" href="https://wa.me/919876543210" target="_blank"><i class="fa fa-whatsapp"></i> Chat</a>
+
+  <!-- Lightbox / Demo modal -->
+  <div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:120">
+    <div style="width:90%;max-width:900px;background:#071022;padding:12px;border-radius:12px;position:relative">
+      <button onclick="closeModal()" style="position:absolute;right:10px;top:10px;background:transparent;border:none;color:#fff;font-size:20px">✕</button>
+      <div style="aspect-ratio:16/9;background:#000;border-radius:8px;overflow:hidden">
+        <iframe id="modalFrame" src="" frameborder="0" allowfullscreen style="width:100%;height:100%"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function scrollToSection(id){
+      const el = document.getElementById(id);
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    function openDemo(e, src){
+      e.preventDefault();
+      document.getElementById('modalFrame').src = src + '?autoplay=1';
+      document.getElementById('modal').style.display = 'flex';
+    }
+    function closeModal(){
+      document.getElementById('modalFrame').src = '';
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    // Simple form handler - prepares data, won't actually send (replace with your endpoint)
+    function submitForm(e){
+      e.preventDefault();
+      const data = {
+        name:document.getElementById('name').value,
+        email:document.getElementById('email').value,
+        phone:document.getElementById('phone').value,
+        service:document.getElementById('service').value,
+        message:document.getElementById('message').value
+      };
+      // For GitHub Pages you can forward to Formspree / Getform or your backend
+      console.log('contact form submitted',data);
+      alert('Thanks! Your message has been prepared. For production, hook this to an email or backend endpoint.');
+      document.getElementById('contactForm').reset();
+    }
+
+    // Small enhancements: smooth scroll to hash on load
+    if(location.hash){
+      const id = location.hash.replace('#','');
+      setTimeout(()=>{scrollToSection(id)},300);
+    }
+  </script>
+</body>
+</html>
