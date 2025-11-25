@@ -8,25 +8,52 @@
 
   <!-- Google fonts (optional) -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-
+  <script src="script.js"></script>
   <style>
     /* -------------------------
        Modern Gradient UI — Single File Styles
        Clean, responsive, professional layout with subtle animations
        ------------------------- */
 
+:root{
+  --bg-1: #000000;     
+  --bg-2: #000000;     
+
+  /* Logo-based gradient card */
+  --card: linear-gradient(
+      135deg,
+      #ff8a33cc 0%,   /* bright orange */
+      #ff3d2bcc 35%,  /* hot reddish orange */
+      #d41636cc 70%,  /* deep red */
+      #7a0e2bcc 100%  /* dark wine red */
+  );
+
+  --glass: rgba(255, 255, 255, 0.04);
+  --muted: #b6b9c3;
+
+  /* Extracted from logo highlights */
+  --accent-a: #ff6a2d;   /* bright orange highlight */
+  --accent-b: #e71f3d;   /* hot red highlight */
+
+  --radius: 14px;
+  --maxw: 1180px;
+  --shadow-1: 0 10px 30px rgba(2, 6, 23, 0.6);
+}
+
+/*
     :root{
-      --bg-1: #0f1724;     /* deep navy */
-      --bg-2: #081229;     /* darker */
+      --bg-1: #0f1724;     
+      --bg-2: #081229;     
       --card: linear-gradient(135deg,#0b1220cc 0%, #0f1b2acc 100%);
       --glass: rgba(255,255,255,0.04);
       --muted: #98a2b3;
-      --accent-a: #6d28d9; /* purple */
-      --accent-b: #06b6d4; /* teal */
+      --accent-a: #6d28d9; 
+      --accent-b: #06b6d4; 
       --radius: 14px;
       --maxw: 1180px;
       --shadow-1: 0 10px 30px rgba(2,6,23,0.6);
-    }
+    }*/
+
 
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -72,7 +99,7 @@
     .kpi{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px 14px;border-radius:10px;font-weight:700;color:#dbeafe}
 
     /* FEATURE CARD */
-    .feature-card{background:var(--card);border-radius:16px;padding:14px;box-shadow:var(--shadow-1);border:1px solid rgba(255,255,255,0.02)}
+    .feature-card{border-radius:16px;padding:14px;box-shadow:var(--shadow-1);border:1px solid rgba(255,255,255,0.02)}
     .feature-card img{width:100%;border-radius:10px;display:block}
 
     /* SERVICES */
@@ -132,6 +159,144 @@
     .muted{color:var(--muted)}
     a.inline-link{color:var(--accent-b);text-decoration:none;font-weight:700}
 
+    /* Viewport */
+.pc-viewport {
+  overflow: hidden;
+  padding: 0; /* no extra padding here */
+  box-sizing: border-box;
+}
+
+/* Track */
+.pc-track {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 28px;
+  /* Desktop: 3 cards visible */
+  grid-auto-columns: calc((100% - 2 * 28px) / 3);
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+/* Each card */
+.pc-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #4b4b4b;
+  height: 240px;
+  width: 100%; /* fills grid column */
+  box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+  display: grid;
+  align-content: end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Media inside card */
+.pc-media {
+  position: absolute;
+  inset: 0;
+  background: #5c5c5c;
+  display: grid;
+  place-items: center;
+  color: #bcbcbc;
+  font-size: clamp(18px, 2.2vw, 42px);
+  letter-spacing: 2px;
+  user-select: none;
+}
+.pc-media.img{
+width: 600px;
+height: 400px;
+}
+.pc-media {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pc-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills the card */
+  object-position: center; /* centers image */
+  display: block;
+}
+/* Card title */
+.pc-card h3 {
+  position: relative;
+  margin: 0;
+  padding: 20px 22px 24px;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(14px, 1.6vw, 18px);
+  text-align: left;
+  z-index: 1;
+}
+
+/* Arrows */
+.pc-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: #f2f2f2;
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  cursor: pointer;
+  z-index: 2;
+}
+.pc-prev { left: 12px; }
+.pc-next { right: 12px; }
+.pc-arrow:hover { background: #e8e8e8; }
+
+/* Disabled state */
+.pc-arrow[disabled] {
+  opacity: 0.45;
+  cursor: default;
+}
+.pc-card-link {
+  display: block;
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* keep text color */
+}
+
+
+/* Tablet: 2 cards visible */
+@media (max-width: 1100px) {
+  .pc-track {
+    grid-auto-columns: calc((100% - 28px) / 2);
+  }
+  .pc-card { height: 220px; }
+}
+
+/* Mobile: 1 card visible */
+@media (max-width: 640px) {
+  .projects-carousel { padding: 0 48px; }
+  .pc-track { grid-auto-columns: 100%; }
+  .pc-card { height: 200px; }
+}
+.brand .logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  overflow: hidden;              /* important: crop image inside */
+  display: grid;
+  place-items: center;
+  background: none;              /* remove gradient */
+  padding: 0;
+}
+
+.brand .logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;           /* keeps the logo shape */
+  display: block;
+}
+
   </style>
 </head>
 <body>
@@ -139,7 +304,7 @@
   <header class="nav">
     <div class="container nav-inner">
       <div class="brand">
-        <div class="logo">K</div>
+        <div class="logo"><img src="/logoremoved.png" alt=""></div>
         <div>
           <h4 style="margin:0">KEEN Tech</h4>
           <div style="font-size:12px;color:var(--muted);margin-top:2px">Projects · Research · Labs</div>
@@ -180,77 +345,13 @@
 
           <aside class="feature-card reveal visible">
             <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="featured project">
-            <div style="margin-top:12px;color:var(--muted);font-size:14px">Featured: Gesture-Controlled Robo Car</div>
+           
           </aside>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <!-- <section id="services" class="services">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Our Comprehensive Services</h2>
-          <p class="section-sub">End-to-end support across project development, research publication, lab setup, internships and technology consulting.</p>
-        </div>
 
-        <div class="services-grid">
-          <div class="svc reveal">
-            <div class="icon">PD</div>
-            <h3>Project Development</h3>
-            <p>Electronics, mechanical, biomedical & software prototypes with documentation and mentorship.</p>
-          </div>
-
-          <div class="svc reveal">
-            <div class="icon">RK</div>
-            <h3>Ready-Made Kits</h3>
-            <p>Complete educational kits with BOM, videos and lab exercises for quick hands-on learning.</p>
-          </div>
-
-          <div class="svc reveal">
-            <div class="icon">RP</div>
-            <h3>Research Publication</h3>
-            <p>Support for high-impact Scopus, WoS and UGC journals — editing, formatting and submission guidance.</p>
-          </div>
-
-          <div class="svc reveal">
-            <div class="icon">RG</div>
-            <h3>Research Guidance</h3>
-            <p>One-on-one thesis mentoring, methodology design and experiment planning.</p>
-          </div>
-
-          <div class="svc reveal">
-            <div class="icon">OJS</div>
-            <h3>Open Journal System (OJS)</h3>
-            <p>Journal hosting, peer-review pipeline setup and technical maintenance.</p>
-          </div>
-
-          <div class="svc reveal">
-            <div class="icon">IN</div>
-            <h3>Internships & Training</h3>
-            <p>Industry-grade internships covering AI, Robotics, Embedded Systems, and Web Development.</p>
-          </div>
-
-          <div class="svc reveal">
-            <div class="icon">LD</div>
-            <h3>Lab Development</h3>
-            <p>Design and setup for robotics, drone, 3D printing and microcontroller labs with safety & curriculum.</p>
-          </div>
-
-          <div class="svc reveal">
-            <div class="icon">TC</div>
-            <h3>Technology Consulting</h3>
-            <p>R&D consulting, prototyping and productization for startups and MSMEs.</p>
-          </div>
-
-          <div class="svc reveal">
-            <div class="icon">CB</div>
-            <h3>Custom Boards & BOM</h3>
-            <p>PCB design, procurement-ready BOM and assembly support.</p>
-          </div>
-        </div>
-      </div>
-    </section> -->
 
 
     <!-- SERVICES -->
@@ -335,31 +436,79 @@
 </style>
 
 
+
     <!-- PROJECTS -->
     <section id="projects" class="projects">
       <div class="container">
         <h2 class="section-title">Latest Projects Showcase</h2>
         <p class="section-sub">Real student projects and prototypes — watch demos and read short case studies.</p>
 
-        <div class="projects-track">
-          <article class="proj reveal">
-            <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="project">
-            <h4>Gesture-Controlled Robo Car</h4>
-            <p class="muted">Arduino, sensors, mecanum wheels — full demonstration & source files.</p>
-          </article>
+      <div class="projects-carousel">
 
-          <article class="proj reveal">
-            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="project">
-            <h4>Smart Dustbin with IoT</h4>
-            <p class="muted">Sensor fusion + cloud telemetry for waste management demos.</p>
-          </article>
+        <div class="pc-viewport" aria-live="polite">
+          <div class="pc-track">
+            <a
+              href="https://youtu.be/4mUwyRIvMRs?si=qL5asa1h5GRFHxO1"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="Images/LDR Interface.jpg" alt=""></div>
+                <h3>LDR Interface with LED Simulation in Proteus</h3>
+              </article>
+            </a>
 
-          <article class="proj reveal">
-            <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop&s=placeholder" alt="project">
-            <h4>Heart Rate Monitor with IoT</h4>
-            <p class="muted">Medical-grade sensing and dashboard integration.</p>
-          </article>
+            <a
+              href="https://youtu.be/Ad0YlYML73g?si=J-vT8bG-k1PHcB45"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="Images/robot.png" alt=""></div>
+                <h3>Car with Mecanum Wheels & Axis Robotic Arm</h3>
+              </article>
+            </a>
+
+            <a
+              href="https://youtu.be/ke4rRvOBQCc?si=wz-sxuHrJJnj_RGu"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="Images/dustbin.png" alt=""></div>
+                <h3>DIY Smart Dustbin with Arduino & Sensors</h3>
+              </article>
+            </a>
+
+            <a
+              href="https://youtu.be/hbnLACPlLkU?si=YB4DsiD82PthrlPF"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="Images/heart.png" alt=""></div>
+                <h3>Smart Heart Rate Sensor with IoT Connectivity</h3>
+              </article>
+            </a>
+
+            <a
+              href="https://youtu.be/BrixEOphkC8?si=dq4rX5GijTAzvDPC"
+              target="_blank"
+              class="pc-card-link"
+            >
+              <article class="pc-card">
+                <div class="pc-media" aria-hidden="true"><img src="Images/car.png" alt=""></div>
+                <h3>Gesture-Controlled Robo Car</h3>
+              </article>
+            </a>
+            
+            <!-- duplicate or add more cards as needed -->
+          </div>
+          <p style="padding-top: 50px; font-size :35px " >Where ideas turn into prototypes, and prototypes become future tech.</p>
         </div>
+
+      
+      </div>
       </div>
     </section>
 

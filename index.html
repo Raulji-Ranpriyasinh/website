@@ -1,318 +1,449 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>mkentech.in</title>
-    <link rel="stylesheet" href="services.css" />
-    <script src="script.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KEEN — Innovation & Projects</title>
+  <meta name="description" content="KEEN Tech — projects, research publication support, internships, lab development and technology consulting." />
 
-    <style>
-      /* Reset */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Open Sans", sans-serif;
-        background: white;
-        color: white;
-        min-height: 100vh;
-      }
+  <!-- Google fonts (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script src="script.js"></script>
+  <style>
+    /* -------------------------
+       Modern Gradient UI — Single File Styles
+       Clean, responsive, professional layout with subtle animations
+       ------------------------- */
 
-      header .logo {
-        font-size: 20px;
-        font-weight: bold;
-      }
+:root{
+  --bg-1: #000000;     
+  --bg-2: #000000;     
 
-      nav a {
-        margin-left: 20px;
-        text-decoration: none;
-        color: white;
-        font-size: 16px;
-        transition: 0.3s;
-      }
+  /* Logo-based gradient card */
+  --card: linear-gradient(
+      135deg,
+      #ff8a33cc 0%,   /* bright orange */
+      #ff3d2bcc 35%,  /* hot reddish orange */
+      #d41636cc 70%,  /* deep red */
+      #7a0e2bcc 100%  /* dark wine red */
+  );
 
-      nav a:hover {
-        color: rgba(212, 12, 12, 0.697);
-      }
+  --glass: rgba(255, 255, 255, 0.04);
+  --muted: #b6b9c3;
 
-      .btn-contact {
-        background: rgba(212, 12, 12, 0.697);
-        padding: 8px 16px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: bold;
-        color: white;
-        text-decoration: none;
-        margin-left: 20px;
-      }
+  /* Extracted from logo highlights */
+  --accent-a: #ff6a2d;   /* bright orange highlight */
+  --accent-b: #e71f3d;   /* hot red highlight */
 
-      /* Hero Section */
-      .hero {
-        color: #0a0c10;
-        text-align: center;
-        margin: auto;
-        max-width: 800px;
-        padding: 40px 20px;
-        min-height: 100vh; /* take full screen */
-        display: flex;
-      }
-      .hero {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        padding: 40px 20px;
-      }
+  --radius: 14px;
+  --maxw: 1180px;
+  --shadow-1: 0 10px 30px rgba(2, 6, 23, 0.6);
+}
 
-      .hero h1 {
-        font-size: 48px;
-        font-weight: bold;
-        margin-bottom: 20px;
-      }
-
-      .hero p {
-        font-size: 18px;
-        margin-bottom: 30px;
-        line-height: 1.6;
-      }
-
-      /* Buttons */
-      .buttons {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-      }
-
-      .buttons a {
-        padding: 12px 24px;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: bold;
-        text-decoration: none;
-        transition: 0.3s;
-      }
-      .buttons a:hover {
-        background: rgba(212, 12, 12, 0.697);
-      }
-      .btn-explore {
-        background: rgba(212, 12, 12, 0.697);
-        color: white;
-      }
-
-      .btn-explore:hover {
-        opacity: 0.9;
-      }
-
-      .btn-outline {
-        border: 2px solid white;
-        color: white;
-      }
-
-      .btn-outline {
-        border-color: #0a0c10;
-        color: #0a0c10;
-      }
-      .btn-outline:hover {
-        border-color: rgba(212, 12, 12, 0.697);
-        background: rgba(212, 12, 12, 0.697);
-        color: white;
-      }
-      /* Navbar */
-      header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 15px 50px;
-        background: transparent; /* transparent at first */
-        transition: background 0.3s ease; /* smooth change */
-        z-index: 1000;
-      }
-
-      header.scrolled {
-        background: #fafafacc;
-        opacity: 90%; /* solid when scrolled */
-        border-color: #c9cbcf;
-      }
-      header nav a {
-        color: black;
-      }
-
-      /* Logo */
-      .logo img {
-        height: 40px; /* control logo size */
-        width: auto; /* keep proportions */
-        display: block; /* removes extra bottom spacing */
-      }
-      .heading {
-        color: #fc1f3c;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-
-      /* Sweep glow background */
+/*
+    :root{
+      --bg-1: #0f1724;     
+      --bg-2: #081229;     
+      --card: linear-gradient(135deg,#0b1220cc 0%, #0f1b2acc 100%);
+      --glass: rgba(255,255,255,0.04);
+      --muted: #98a2b3;
+      --accent-a: #6d28d9; 
+      --accent-b: #06b6d4; 
+      --radius: 14px;
+      --maxw: 1180px;
+      --shadow-1: 0 10px 30px rgba(2,6,23,0.6);
+    }*/
 
 
-    </style>
-  </head>
-  <body>
-    <!-- Header -->
-    <header>
-      <div class="logo">
-        <img src="logoremoved.png" alt="Logo" />
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg,var(--bg-1) 0%,var(--bg-2) 100%);
+      color: #e6eef8;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    header.nav{position:fixed;left:0;right:0;top:0;z-index:60;background:linear-gradient(180deg, rgba(8,10,14,0.45), rgba(8,10,14,0.15));backdrop-filter:blur(6px);border-bottom:1px solid rgba(255,255,255,0.02)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand .logo{width:46px;height:46px;border-radius:8px;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));display:grid;place-items:center;font-weight:800;color:#fff}
+    .brand h4{margin:0;font-size:16px;letter-spacing:0.2px}
+
+    nav.topnav{display:flex;gap:18px;align-items:center}
+    nav.topnav a{color:var(--muted);text-decoration:none;font-weight:600;padding:8px 10px;border-radius:8px;transition:all .18s}
+    nav.topnav a:hover{color:#fff;background:rgba(255,255,255,0.03);transform:translateY(-2px)}
+    .cta{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:10px 14px;border-radius:10px;color:white;font-weight:700;text-decoration:none}
+
+    /* HERO */
+    .hero{padding:120px 0 60px}
+    .hero-grid{display:grid;grid-template-columns:1fr 460px;gap:48px;align-items:center}
+    .hero-eyebrow{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#192033,rgba(255,255,255,0.02));color:var(--muted);font-size:13px;margin-bottom:18px}
+    .hero h1{font-size:44px;line-height:1.02;margin:0 0 18px;color:linear-gradient(90deg,var(--accent-a),var(--accent-b));}
+    .hero h1 .accent{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .lead{color:var(--muted);font-size:18px;max-width:60ch}
+
+    .hero-ctas{display:flex;gap:14px;margin-top:26px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:12px;font-weight:700;text-decoration:none}
+    .btn.primary{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));color:white;box-shadow:0 12px 30px rgba(109,40,217,0.14)}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* KPIs */
+    .kpis{display:flex;gap:12px;margin-top:22px}
+    .kpi{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:10px 14px;border-radius:10px;font-weight:700;color:#dbeafe}
+
+    /* FEATURE CARD */
+    .feature-card{border-radius:16px;padding:14px;box-shadow:var(--shadow-1);border:1px solid rgba(255,255,255,0.02)}
+    .feature-card img{width:100%;border-radius:10px;display:block}
+
+    /* SERVICES */
+    section.services{padding:64px 0 40px}
+    .section-title{font-size:28px;margin-bottom:10px;color:#f1f5f9}
+    .section-sub{color:var(--muted);margin-bottom:24px}
+
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .svc{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(2,6,23,0.45);border:1px solid rgba(255,255,255,0.03);transition:transform .25s, box-shadow .25s}
+    .svc:hover{transform:translateY(-8px);box-shadow:0 22px 48px rgba(2,6,23,0.6)}
+    .svc .icon{width:52px;height:52;border-radius:10px;display:grid;place-items:center;margin-bottom:12px;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));color:white;font-weight:700}
+    .svc h3{margin:0 0 8px}
+    .svc p{margin:0;color:var(--muted)}
+
+    /* PROJECTS carousel (simple horizontal scroll) */
+    .projects{padding:64px 0}
+    .projects-track{display:flex;gap:18px;overflow-x:auto;padding-bottom:6px;scroll-snap-type:x mandatory}
+    .proj{min-width:320px;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);scroll-snap-align:center}
+    .proj img{width:100%;height:180px;object-fit:cover;border-radius:8px;margin-bottom:12px}
+
+    /* TESTIMONIALS */
+    .testimonials{padding:64px 0 40px}
+    .t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .t-card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:22px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .t-quote{color:var(--muted);font-style:normal}
+
+    /* CONTACT */
+    .contact{padding:64px 0}
+    .contact-grid{display:grid;grid-template-columns:1fr 380px;gap:20px;align-items:start}
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .form-row{display:grid;gap:10px}
+    input,textarea,select{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:var(--muted)}
+    button.submit{background:linear-gradient(90deg,var(--accent-a),var(--accent-b));padding:12px;border-radius:10px;border:none;color:#fff;font-weight:700;width:100%}
+
+    /* FOOTER */
+    footer.site{padding:36px 0;color:var(--muted);border-top:1px solid rgba(255,255,255,0.02);margin-top:40px}
+
+    /* small screens */
+    @media (max-width:1000px){
+      .hero-grid{grid-template-columns:1fr 1fr}
+      .services-grid{grid-template-columns:repeat(2,1fr)}
+      .t-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width:720px){
+      .hero-grid{grid-template-columns:1fr}
+      nav.topnav{display:none}
+      .services-grid{grid-template-columns:1fr}
+      .t-grid{grid-template-columns:1fr}
+      .contact-grid{grid-template-columns:1fr}
+    }
+
+    /* subtle entrance animations */
+    .reveal{opacity:0;transform:translateY(8px);transition:all .6s cubic-bezier(.12,.8,.25,1)}
+    .reveal.visible{opacity:1;transform:none}
+
+    /* small helpers */
+    .muted{color:var(--muted)}
+    a.inline-link{color:var(--accent-b);text-decoration:none;font-weight:700}
+
+    /* Viewport */
+.pc-viewport {
+  overflow: hidden;
+  padding: 0; /* no extra padding here */
+  box-sizing: border-box;
+}
+
+/* Track */
+.pc-track {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 28px;
+  /* Desktop: 3 cards visible */
+  grid-auto-columns: calc((100% - 2 * 28px) / 3);
+  transition: transform 0.5s ease;
+  will-change: transform;
+}
+
+/* Each card */
+.pc-card {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #4b4b4b;
+  height: 240px;
+  width: 100%; /* fills grid column */
+  box-shadow: 0 18px 36px rgba(0,0,0,0.12);
+  display: grid;
+  align-content: end;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Media inside card */
+.pc-media {
+  position: absolute;
+  inset: 0;
+  background: #5c5c5c;
+  display: grid;
+  place-items: center;
+  color: #bcbcbc;
+  font-size: clamp(18px, 2.2vw, 42px);
+  letter-spacing: 2px;
+  user-select: none;
+}
+.pc-media.img{
+width: 600px;
+height: 400px;
+}
+.pc-media {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pc-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;   /* fills the card */
+  object-position: center; /* centers image */
+  display: block;
+}
+/* Card title */
+.pc-card h3 {
+  position: relative;
+  margin: 0;
+  padding: 20px 22px 24px;
+  color: #fff;
+  font-weight: 800;
+  font-size: clamp(14px, 1.6vw, 18px);
+  text-align: left;
+  z-index: 1;
+}
+
+/* Arrows */
+.pc-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: none;
+  background: #f2f2f2;
+  color: #333;
+  box-shadow: 0 8px 20px rgba(0,0,0,.15);
+  cursor: pointer;
+  z-index: 2;
+}
+.pc-prev { left: 12px; }
+.pc-next { right: 12px; }
+.pc-arrow:hover { background: #e8e8e8; }
+
+/* Disabled state */
+.pc-arrow[disabled] {
+  opacity: 0.45;
+  cursor: default;
+}
+.pc-card-link {
+  display: block;
+  text-decoration: none; /* remove underline */
+  color: inherit;        /* keep text color */
+}
+
+
+/* Tablet: 2 cards visible */
+@media (max-width: 1100px) {
+  .pc-track {
+    grid-auto-columns: calc((100% - 28px) / 2);
+  }
+  .pc-card { height: 220px; }
+}
+
+/* Mobile: 1 card visible */
+@media (max-width: 640px) {
+  .projects-carousel { padding: 0 48px; }
+  .pc-track { grid-auto-columns: 100%; }
+  .pc-card { height: 200px; }
+}
+.brand .logo {
+  width: 46px;
+  height: 46px;
+  border-radius: 8px;
+  overflow: hidden;              /* important: crop image inside */
+  display: grid;
+  place-items: center;
+  background: none;              /* remove gradient */
+  padding: 0;
+}
+
+.brand .logo img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;           /* keeps the logo shape */
+  display: block;
+}
+
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="logo"><img src="/logoremoved.png" alt=""></div>
+        <div>
+          <h4 style="margin:0">KEEN Tech</h4>
+          <div style="font-size:12px;color:var(--muted);margin-top:2px">Projects · Research · Labs</div>
+        </div>
       </div>
-      <nav>
+
+      <nav class="topnav">
         <a href="#services">Services</a>
-        <a href="#">Products</a>
-        <a href="#">Internships</a>
-        <a href="#">Contact</a>
-        <a href="#">About </a>
+        <a href="#projects">Projects</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+        <a class="cta" href="#contact">Get Quote</a>
       </nav>
-      <a href="#" class="btn-contact">Contact Us</a>
-    </header>
+    </div>
+  </header>
 
-    <!-- Hero Section -->
+  <main>
+    <!-- HERO -->
     <section class="hero">
-      <h1>
-        Empowering
-        <span class="heading"> Students, Researchers & Innovators</span>
-      </h1>
-      <p>
-        Your one-stop hub for academic projects, research publication,
-        innovation consulting, and comprehensive educational support.
-      </p>
-      <div class="buttons">
-        <a href="#" class="btn-explore">Explore Services</a>
-        <a href="#" class="btn-outline">Contact Us</a>
-      </div>
-    </section>
-    <!-- our service -->
-    <section class="services" id="services">
-      <h2>Our Comprehensive Services</h2>
-      <p>
-        We provide a complete ecosystem of services to support students,
-        researchers, and innovators at every stage of their journey.
-      </p>
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="hero-eyebrow">Empowering Students & Innovators</div>
+            <h1 class="reveal visible">Practical projects, research publication support, and lab setups for real-world impact</h1>
+            <p class="lead reveal visible">KEEN helps students, researchers and startups build prototypes, publish research, and scale lab infrastructure. Focus on learning by building — we handle the technical heavy lifting.</p>
 
-      <div class="service-cards">
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
-          <h3>Project Development</h3>
-          <p>
-            End-to-end support for Electronics, Mechanical, Biomedical, and
-            Software projects.
-          </p>
-          <a href="#">Learn More →</a>
-        </div>
+            <div class="hero-ctas reveal visible">
+              <a class="btn primary" href="#contact">Start Your Project</a>
+              <a class="btn secondary" href="#services">Explore Services</a>
+            </div>
 
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-cube"></i>
+            <div class="kpis reveal visible" style="margin-top:20px">
+              <div class="kpi">3,000+ Students</div>
+              <div class="kpi">1,200+ Projects</div>
+              <div class="kpi">98% Success</div>
+            </div>
           </div>
-          <h3>Ready-Made Kits</h3>
-          <p>
-            Complete kits with documentation and videos for quick, hands-on
-            learning.
-          </p>
-          <a href="#">Learn More →</a>
-        </div>
 
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <h3>Research Publication</h3>
-          <p>
-            Expert assistance for publishing in high-impact Scopus, WoS, and UGC
-            journals.
-          </p>
-          <a href="#">Learn More →</a>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <h3>Research Guidance</h3>
-          <p>
-            One-on-one consulting for thesis Development,methodology, and
-            structuring
-          </p>
-          <a href="#">Learn More →</a>
-        </div>
-      </div>
-      <div class="service-cards">
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-project-diagram"></i>
-          </div>
-          <h3>Open Journal System(OJS)</h3>
-          <p>
-            Complete journal hosting, management, and technical support
-            solutions .
-          </p>
-          <a href="#">Learn More →</a>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-cube"></i>
-          </div>
-          <h3>Internships & Training</h3>
-          <p>
-            Hands-on experience in Software, Robotics, AI, and other emerging
-            technologies.
-          </p>
-          <a href="#">Learn More →</a>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <h3>Lab Development</h3>
-          <p>
-            Setup and support for Robotics, Dron, 3D Printing, and
-            Microcontroller Labs.
-          </p>
-          <a href="#">Learn More →</a>
-        </div>
-
-        <div class="card">
-          <div class="icon">
-            <i class="fas fa-book"></i>
-          </div>
-          <h3>Technology Consulting</h3>
-          <p>R&D consulting and innovation support for startups and MSMEs.</p>
-          <a href="#">Learn More →</a>
+          <aside class="feature-card reveal visible">
+            <img src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1200&auto=format&fit=crop&ixlib=rb-4.0.3&s=placeholder" alt="featured project">
+           
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- Project show case section -->
 
-    <section class="projects" id="services">
-      <h2>Latest Projects Showcase</h2>
-      <p>
-        Check out some of the innovative projects our students and researchers
-        have recently completed.
-      </p>
+
+
+    <!-- SERVICES -->
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Our Comprehensive Services</h2>
+      <p class="section-sub">End-to-end support across project development, research publication, lab setup, internships and technology consulting.</p>
+    </div>
+
+    <div class="services-tabs" style="display:flex;gap:24px;flex-wrap:wrap">
+      <!-- Left menu -->
+      <div class="svc-menu" style="flex:1;min-width:220px;">
+        <div class="svc-tab active" data-id="pd">Project Development</div>
+        <div class="svc-tab" data-id="rk">Ready-Made Kits</div>
+        <div class="svc-tab" data-id="rp">Research Publication</div>
+        <div class="svc-tab" data-id="rg">Research Guidance</div>
+        <div class="svc-tab" data-id="ojs">Open Journal System (OJS)</div>
+        <div class="svc-tab" data-id="in">Internships & Training</div>
+        <div class="svc-tab" data-id="ld">Lab Development</div>
+        <div class="svc-tab" data-id="tc">Technology Consulting</div>
+        <div class="svc-tab" data-id="cb">Custom Boards & BOM</div>
+      </div>
+
+      <!-- Right content -->
+      <div class="svc-content" style="flex:3;min-width:280px;">
+        <div class="svc-panel" id="pd">Electronics, mechanical, biomedical & software prototypes with documentation and mentorship.</div>
+        <div class="svc-panel" id="rk" style="display:none;">Complete educational kits with BOM, videos and lab exercises for quick hands-on learning.</div>
+        <div class="svc-panel" id="rp" style="display:none;">Support for high-impact Scopus, WoS and UGC journals — editing, formatting and submission guidance.</div>
+        <div class="svc-panel" id="rg" style="display:none;">One-on-one thesis mentoring, methodology design and experiment planning.</div>
+        <div class="svc-panel" id="ojs" style="display:none;">Journal hosting, peer-review pipeline setup and technical maintenance.</div>
+        <div class="svc-panel" id="in" style="display:none;">Industry-grade internships covering AI, Robotics, Embedded Systems, and Web Development.</div>
+        <div class="svc-panel" id="ld" style="display:none;">Design and setup for robotics, drone, 3D printing and microcontroller labs with safety & curriculum.</div>
+        <div class="svc-panel" id="tc" style="display:none;">R&D consulting, prototyping and productization for startups and MSMEs.</div>
+        <div class="svc-panel" id="cb" style="display:none;">PCB design, procurement-ready BOM and assembly support.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Services tab functionality
+  const tabs = document.querySelectorAll('.svc-tab');
+  const panels = document.querySelectorAll('.svc-panel');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', ()=>{
+      // remove active from all tabs
+      tabs.forEach(t=>t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // hide all panels
+      panels.forEach(p=>p.style.display='none');
+      // show selected panel
+      const target = document.getElementById(tab.dataset.id);
+      if(target) target.style.display='block';
+    });
+  });
+</script>
+
+<style>
+  /* Services tab styling */
+  .svc-tab{
+    padding:12px 16px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-bottom:6px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border:1px solid rgba(255,255,255,0.03);
+    transition:all .25s;
+  }
+  .svc-tab.active{
+    background:linear-gradient(90deg,var(--accent-a),var(--accent-b));
+    color:white;
+  }
+  .svc-panel{
+    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    padding:20px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+</style>
+
+
+
+    <!-- PROJECTS -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">Latest Projects Showcase</h2>
+        <p class="section-sub">Real student projects and prototypes — watch demos and read short case studies.</p>
 
       <div class="projects-carousel">
-        <button class="pc-arrow pc-prev" aria-label="Previous">❮</button>
 
         <div class="pc-viewport" aria-live="polite">
           <div class="pc-track">
@@ -376,232 +507,97 @@
           <p style="padding-top: 50px; font-size :35px " >Where ideas turn into prototypes, and prototypes become future tech.</p>
         </div>
 
-        <button class="pc-arrow pc-next" aria-label="Next">❯</button>
+      
+      </div>
       </div>
     </section>
 
-    <!-- what or student say -->
-    <section class="testemonial" id="testemonial">
-  <h2>What Our Students Say</h2>
-  <p>Feedback from international students who have used our services.</p>
+    <!-- TESTIMONIALS -->
+    <section id="testimonials" class="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Our Students Say</h2>
+        <div class="t-grid">
+          <div class="t-card reveal">
+            <p class="t-quote">"The Overseas Student Care service was a lifesaver — helped me with accommodation and assignments."</p>
+            <div style="display:flex;gap:12px;margin-top:12px;align-items:center"><div style="width:48px;height:48px;border-radius:8px;background:#0b1630;display:grid;place-items:center">CW</div><div><strong>Harsh</strong><div class="muted">Dubai</div></div></div>
+          </div>
 
-  <div class="testimonials">
-    <article class="t-card">
-      <p class="t-quote">"The Overseas Student Care service was a lifesaver! They helped me with my accommodation and assignments, making my transition to a new country so much smoother."</p>
-      <div class="t-person">
-        <div class="t-avatar">CW</div>
-        <div class="t-meta">
-          <h4>Harsh</h4>
-          <span>Dubai</span>
+          <div class="t-card reveal">
+            <p class="t-quote">"Research Guidance program gave me the direction I needed for my PhD thesis."</p>
+            <div style="display:flex;gap:12px;margin-top:12px;align-items:center"><div style="width:48px;height:48px;border-radius:8px;background:#0b1630;display:grid;place-items:center">FA</div><div><strong>Ive</strong><div class="muted">Australia</div></div></div>
+          </div>
+
+          <div class="t-card reveal">
+            <p class="t-quote">"Project development support is top‑notch — built a fully functional prototype for final year."</p>
+            <div style="display:flex;gap:12px;margin-top:12px;align-items:center"><div style="width:48px;height:48px;border-radius:8px;background:#0b1630;display:grid;place-items:center">DS</div><div><strong>Henil</strong><div class="muted">United Kingdom</div></div></div>
+          </div>
         </div>
       </div>
-    </article>
+    </section>
 
-    <article class="t-card">
-      <p class="t-quote">"I was struggling with my PhD thesis, but the Research Guidance program gave me the direction I needed. My mentor was incredibly knowledgeable and supportive."</p>
-      <div class="t-person">
-        <div class="t-avatar">FA</div>
-        <div class="t-meta">
-          <h4>Ive</h4>
-          <span>Australia </span>
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="contact-grid">
+          <form class="panel reveal" id="contactForm" onsubmit="return handleForm(event)">
+            <h3 style="margin-top:0">Let's Connect</h3>
+            <p class="muted">Share project details and we'll get back within 24 hours.</p>
+            <div class="form-row">
+              <input id="name" placeholder="Full name" required />
+              <input id="email" type="email" placeholder="Email" required />
+              <input id="phone" placeholder="Phone (optional)" />
+              <select id="service"><option value="project">Project Development</option><option value="research">Research Publication</option><option value="intern">Internship</option><option value="lab">Lab Setup</option></select>
+              <textarea id="message" rows="5" placeholder="Tell us about your project"></textarea>
+              <button class="submit">Send Message</button>
+            </div>
+          </form>
+
+          <aside class="panel reveal">
+            <h4 style="margin-top:0">Contact Details</h4>
+            <p class="muted">Phone: +91 98765 43210<br>Email: hello@keentech.example</p>
+            <div style="margin-top:12px"><a class="inline-link" href="#">Book a call</a></div>
+
+            <hr style="border:none;height:1px;background:rgba(255,255,255,0.02);margin:18px 0">
+
+            <h4 style="margin-bottom:6px">Office</h4>
+            <p class="muted">123 Innovation Drive<br>Knowledge City</p>
+          </aside>
         </div>
       </div>
-    </article>
+    </section>
 
-    <article class="t-card">
-      <p class="t-quote">"The project development support is top‑notch. With their help, I was able to build a fully functional prototype for my final year project. Highly recommended!"</p>
-      <div class="t-person">
-        <div class="t-avatar">DS</div>
-        <div class="t-meta">
-          <h4>Henil</h4>
-          <span>United Kingdom</span>
-        </div>
-      </div>
-    </article>
-  </div>
-</section>
+  </main>
 
-<!-- contact -->
-
-<!-- <section class="contact" id="contact">
-  <div class="container">
-    <div class="left">
-      <h2>Get in Touch</h2>
-      <p>Have a question or a project in mind? Fill out the form, and we'll get back to you as soon as possible.</p>
-
-      <form class="contact-form" action="#" method="post" novalidate>
-        <label class="field">
-          <span class="label">Name</span>
-          <input class="input" type="text" name="name" placeholder="Your Name" required />
-        </label>
-
-        <label class="field">
-          <span class="label">Email</span>
-          <input class="input" type="email" name="email" placeholder="your.email@example.com" required />
-        </label>
-
-        <label class="field">
-          <span class="label">Phone (Optional)</span>
-          <input class="input" type="tel" name="phone" placeholder="Your phone number" />
-        </label>
-
-        <label class="field field--full">
-          <span class="label">Message</span>
-          <textarea class="textarea" name="message" rows="6" placeholder="Tell us a little bit about your project or question"></textarea>
-        </label>
-
-        <button type="submit" class="btn-gradient">Submit Enquiry</button>
-      </form>
+  <footer class="site container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap">
+      <div>© <strong>KEEN Tech</strong> · All rights reserved</div>
+      <div class="muted">Made with ❤️ · Research · Projects · Labs</div>
     </div>
-
-   
-  </div>
-</section> -->
-
-
-<section id="contact" class="contact">
-
-  <!-- =================== GET IN TOUCH =================== -->
-  <div class="container contact-block">
-    <div class="left">
-      <h2>Get in Touch</h2>
-      <p>Have a question or a project in mind? Fill out the form, and we'll get back to you as soon as possible.</p>
-
-      <form class="contact-form" action="#" method="post" novalidate>
-        <label class="field">
-          <span class="label">Name</span>
-          <input class="input" type="text" name="name" placeholder="Your Name" required />
-        </label>
-
-        <label class="field">
-          <span class="label">Email</span>
-          <input class="input" type="email" name="email" placeholder="your.email@example.com" required />
-        </label>
-
-        <label class="field">
-          <span class="label">Phone (Optional)</span>
-          <input class="input" type="tel" name="phone" placeholder="Your phone number" />
-        </label>
-
-        <label class="field field--full">
-          <span class="label">Message</span>
-          <textarea class="textarea" name="message" rows="6" placeholder="Tell us a little bit about your project or question"></textarea>
-        </label>
-
-        <button type="submit" class="btn-gradient">Submit Enquiry</button>
-      </form>
-    </div>
-
-    <aside class="right">
-      <div class="left">
-      <h2>About Us</h2>
-
-      <p>
-        KEEN Tech Solutions LLP is committed to empowering students, researchers, and innovators
-        by offering technical solutions, research support, academic project guidance,
-        and industry-grade development services.
-      </p>
-
-      <p>
-        We bridge the gap between education and innovation with hands-on experience,
-        mentorship, and technology solutions tailored for real-world needs.
-      </p>
-    </aside>
-  </div>
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- About + Footer Combo -->
-<!-- <section class="about-hero" id="about">
-  <div class="container">
-    <h2>Our Vision</h2>
-    <p>Bridging the gap between Projects, Research, Training, Labs, Publication, and Academics to create a holistic ecosystem for learning and innovation.</p>
-  </div>
-</section> -->
-
-
-
-<!-- Wave divider -->
-<div class="footer-wave-divider" aria-hidden="true">
-  <svg viewBox="0 0 1440 140" preserveAspectRatio="none" class="wave">
-    <path d="M0,64 C240,128 480,0 720,32 C960,64 1200,160 1440,96 L1440,140 L0,140 Z"></path>
-  </svg>
-</div>
-
-<footer class="site-footer" id="footer">
-  <div class="container footer-grid">
-    <div class="f-brand">
-      <img src="logoremoved.png" alt="KEEN logo small" />
-      <p>KEEN builds a vibrant bridge between academia and industry through research‑centric training and project execution.</p>
-      <div class="social">
-        <a href="#" aria-label="Twitter" class="ic">🐦</a>
-        <a href="#" aria-label="LinkedIn" class="ic">🔗</a>
-        <a href="#" aria-label="GitHub" class="ic">🐙</a>
-      </div>
-    </div>
-
-    <nav class="f-links">
-      <h5>Explore</h5>
-      <ul>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#services">Training & Labs</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="f-contact">
-      <h5>Contact</h5>
-      <ul>
-        <li>123 Innovation Drive</li>
-        <li>Knowledge City, ST 12345</li>
-        <li>Email: contact@mkkentech.in</li>
-        <li>Phone: +1 (234) 567‑890</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="copy">
-    © <span id="yr"></span> KEEN Innovation Lab · All rights reserved.
-  </div>
-</footer>
-
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-</script>
-
-
-
-
-
-  </body>
+  </footer>
 
   <script>
-    window.addEventListener("scroll", function () {
-      const header = document.querySelector("header");
-      if (window.scrollY > 50) {
-        // after 50px scroll
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    });
+    // Small JS to reveal elements on scroll & handle contact form (no backend)
+    const revealElems = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } })
+    },{threshold:0.12});
+    revealElems.forEach(el=>obs.observe(el));
+
+    // fake form handler — replace with real POST endpoint
+    function handleForm(e){
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        message: document.getElementById('message').value
+      };
+      console.log('contact form',data);
+      alert('Thanks — we received your message. (This is a demo.)');
+      e.target.reset();
+      return false;
+    }
   </script>
+</body>
 </html>

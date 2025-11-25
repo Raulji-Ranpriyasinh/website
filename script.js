@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Optional: autoplay (comment out if you don't want it)
-  let autoplayId = setInterval(() => move(+1), 4000);
+  let autoplayId = setInterval(() => move(+1), 2000);
   carousel.addEventListener("mouseenter", () => clearInterval(autoplayId));
   carousel.addEventListener("mouseleave", () => autoplayId = setInterval(() => move(+1), 4000));
 });
