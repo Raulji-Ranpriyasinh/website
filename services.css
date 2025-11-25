@@ -101,7 +101,7 @@
 /* Section basics */
 /* Section basics */
 .projects {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   padding: 100px 20px 40px;
   background: #fff;
   text-align: center;
