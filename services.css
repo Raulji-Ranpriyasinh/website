@@ -1,5 +1,4 @@
-.services {
-  min-height: 100vh;       /* full screen height */
+.services {      /* full screen height */
   padding: 20px 40px; /* push content down a bit so it’s below navbar */
   background: #fff;
   text-align: center;
